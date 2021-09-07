@@ -1,0 +1,29 @@
+/* #mainDiv{
+    width:800px
+} */
+#titleSection{
+    background-color: grey;
+    text-align: center;
+}
+table, th, td {
+    border:1px solid black;
+  }
+
+#submitDiv{
+    width:100%;
+    position: absolute;
+    left: 730px;
+    margin-right: 30px;
+}
+#monthlySpendDiv{
+    width:100%;
+    position: absolute;
+    left: 565px;
+    margin-right: 30px;
+}
+
+.headerRow {
+    background-color: darkgray;
+    color: whitesmoke;
+    font-size: large;
+  }
