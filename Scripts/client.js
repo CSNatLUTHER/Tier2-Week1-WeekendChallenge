@@ -69,9 +69,22 @@ function addEmployeeData(){
 }
 
 function deleteRow(rowID){
+    console.log(rowID);
     let el = rowID.target.id;
     console.log(el);
     let el2 = $('#'+ el).parents()
     console.log(el2);
-    $(el2[1]).empty()
+    let el3 = $(el2[1])
+    let el4 = (el3[0].id);
+    let el5 = Number(el4) + 5
+    console.log(el5);
+    let el6 = $("#" + el5)
+    let el7 = el6[0].outerText;
+    let el8 = Number(el7.replace(/[^0-9.-]+/g,""));
+    console.log(el8);
+    salarySpend -= el8
+    monthlySalarySpend = salarySpend/12;
+    $('#monthlySpend').empty()
+    $('#monthlySpend').append('Monthly Spend = ' + formatter.format(monthlySalarySpend));
+    el3.empty()
 }
