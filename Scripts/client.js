@@ -4,13 +4,15 @@ function onReady(){
    $( "#submitButton").on ('click', getEmployeeData );
 }
 
-let counter = 1000
+let counter = 1000;
+let subCounter = 1;
+let idCounter = counter + subCounter;
 let employeeData = {
     fname:'',
     lname:'',
-    ID:'',
+    ID:0,
     title:'',
-    salary:''
+    salary:0
 };
 
 function getEmployeeData(){
@@ -24,19 +26,31 @@ function getEmployeeData(){
 }
 
 function addEmployeeData(){
- $("#employeeTable").append(
-     `<tr id="employeeRow">
-        <td id="1"></td>
-        <td id="2"></td>
-        <td id="3"></td>
-        <td id="4"></td>
-        <td id="5">$</td>
-        <td id="6"><input id="deleteRecord" type="Button" value="Delete"></td>
-    </tr>`
-     ); 
-$(document).find("#1").append(employeeData.fname)
-$(document).find("#2").append(employeeData.lname)
-$(document).find("#3").append(employeeData.ID)
-$(document).find("#4").append(employeeData.title)
-$(document).find("#5").append(employeeData.salary)
+    $("#employeeTable").append(
+        `<tr id=${counter}>
+            <td id=${idCounter}>${employeeData.fname}</td>
+            ${subCounter++}
+            ${idCounter = counter + subCounter}
+            <td id=${idCounter}>${employeeData.lname}</td>
+            ${subCounter++}
+            ${idCounter = counter + subCounter}
+            <td id=${idCounter}>${employeeData.ID}</td>
+            ${subCounter++}
+            ${idCounter = counter + subCounter}
+            <td id=${idCounter}>${employeeData.title}</td>
+            ${subCounter++}
+            ${idCounter = counter + subCounter}
+            <td id=${idCounter}>${employeeData.salary}</td>
+            ${subCounter++}
+            ${idCounter = counter + subCounter}
+            <td id=${idCounter}><input id=${"deleteRecord" + counter} type="Button" value="Delete"></td>
+        </tr>`
+    ); 
+    $('#fName').val('')
+    $('#lName').val('')
+    $('#employeeID').val('')
+    $('#employeeTitle').val('')
+    $('#annualSalary').val('')
+    counter+=1000;
+    subCounter = 1
 }
