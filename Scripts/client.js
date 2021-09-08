@@ -7,6 +7,7 @@ function onReady(){
 let counter = 1000;
 let subCounter = 1;
 let idCounter = counter + subCounter;
+let highlight = 0;
 let employeeData = {
     fname:'',
     lname:'',
@@ -35,24 +36,32 @@ function getEmployeeData(){
 function addEmployeeData(){
     $("#employeeTable").append(
         `<tr id=${counter}>
-            <td id=${idCounter}>${employeeData.fname}</td>
-            ${subCounter++}
-            ${idCounter = counter + subCounter}
-            <td id=${idCounter}>${employeeData.lname}</td>
-            ${subCounter++}
-            ${idCounter = counter + subCounter}
-            <td id=${idCounter}>${employeeData.ID}</td>
-            ${subCounter++}
-            ${idCounter = counter + subCounter}
-            <td id=${idCounter}>${employeeData.title}</td>
-            ${subCounter++}
-            ${idCounter = counter + subCounter}
-            <td id=${idCounter}>${formatter.format(employeeData.salary)}</td>
-            ${subCounter++}
-            ${idCounter = counter + subCounter}
-            <td id=${idCounter}><input id=${"deleteRecord" + counter} type="Button" value="Delete"></td>
+                <td id=${idCounter}>${employeeData.fname}</td>
+                ${subCounter++}
+                ${idCounter = counter + subCounter}
+                <td id=${idCounter}>${employeeData.lname}</td>
+                ${subCounter++}
+                ${idCounter = counter + subCounter}
+                <td id=${idCounter}>${employeeData.ID}</td>
+                ${subCounter++}
+                ${idCounter = counter + subCounter}
+                <td id=${idCounter}>${employeeData.title}</td>
+                ${subCounter++}
+                ${idCounter = counter + subCounter}
+                <td id=${idCounter}>${formatter.format(employeeData.salary)}</td>
+                ${subCounter++}
+                ${idCounter = counter + subCounter}
+                <td id=${idCounter}><input id=${"deleteRecord" + counter} type="Button" value="Delete"></td>
         </tr>`
     ); 
+    if(highlight === 0){
+        $("#"+counter).addClass( 'highlight0')
+        highlight++
+    }
+    else{
+        $("#"+counter).addClass( 'highlight1')
+        highlight = 0
+    }
     salarySpend += employeeData.salary;
     monthlySalarySpend = salarySpend/12;
     $('#monthlySpend').empty()
