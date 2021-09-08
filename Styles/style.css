@@ -22,7 +22,7 @@ table, th, td {
     margin-right: 30px;
 }
 
-.headerRow {
+#headerRow {
     background-color: darkgray;
     color: whitesmoke;
     font-size: large;
