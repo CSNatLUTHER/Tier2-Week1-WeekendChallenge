@@ -19,13 +19,15 @@ let formatter = new Intl.NumberFormat('en-US', {
     currency: 'USD',
     maximumFractionDigits: 0,
 });
+let salarySpend = 0;
+let monthlySalarySpend = salarySpend/12;
 
 function getEmployeeData(){
     employeeData.fname = $('#fName').val()
     employeeData.lname = $('#lName').val()
     employeeData.ID = $('#employeeID').val()
     employeeData.title = $('#employeeTitle').val()
-    employeeData.salary = $('#annualSalary').val()
+    employeeData.salary = ($('#annualSalary').val())*1
     console.log(employeeData);
     addEmployeeData();
 }
@@ -51,6 +53,11 @@ function addEmployeeData(){
             <td id=${idCounter}><input id=${"deleteRecord" + counter} type="Button" value="Delete"></td>
         </tr>`
     ); 
+    salarySpend += employeeData.salary;
+    monthlySalarySpend = salarySpend/12;
+    $('#monthlySpend').empty()
+    $('#monthlySpend').append('Monthly Spend = ' + formatter.format(monthlySalarySpend));
+    console.log('monthly salary spend:', monthlySalarySpend);
     $("#deleteRecord" + counter).click ( deleteRow );
     $('#fName').val('')
     $('#lName').val('')
