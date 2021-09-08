@@ -14,6 +14,11 @@ let employeeData = {
     title:'',
     salary:0
 };
+let formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+});
 
 function getEmployeeData(){
     employeeData.fname = $('#fName').val()
@@ -40,12 +45,13 @@ function addEmployeeData(){
             <td id=${idCounter}>${employeeData.title}</td>
             ${subCounter++}
             ${idCounter = counter + subCounter}
-            <td id=${idCounter}>${employeeData.salary}</td>
+            <td id=${idCounter}>${formatter.format(employeeData.salary)}</td>
             ${subCounter++}
             ${idCounter = counter + subCounter}
             <td id=${idCounter}><input id=${"deleteRecord" + counter} type="Button" value="Delete"></td>
         </tr>`
     ); 
+    $("#deleteRecord" + counter).click ( deleteRow );
     $('#fName').val('')
     $('#lName').val('')
     $('#employeeID').val('')
@@ -53,4 +59,12 @@ function addEmployeeData(){
     $('#annualSalary').val('')
     counter+=1000;
     subCounter = 1
+}
+
+function deleteRow(rowID){
+    let el = rowID.target.id;
+    console.log(el);
+    let el2 = $('#'+ el).parents()
+    console.log(el2);
+    $(el2[1]).empty()
 }

@@ -1,6 +1,6 @@
-/* #mainDiv{
-    width:800px
-} */
+#mainDiv{
+    margin: 15px;
+}
 #titleSection{
     background-color: grey;
     text-align: center;
@@ -10,16 +10,11 @@ table, th, td {
   }
 
 #submitDiv{
-    width:100%;
-    position: absolute;
-    left: 730px;
-    margin-right: 30px;
+    float:right;
+
 }
 #monthlySpendDiv{
-    width:100%;
-    position: absolute;
-    left: 565px;
-    margin-right: 30px;
+    float: right;
 }
 
 #headerRow {
@@ -27,3 +22,7 @@ table, th, td {
     color: whitesmoke;
     font-size: large;
   }
+
+#employeeTable{
+    width: 100%
+}
