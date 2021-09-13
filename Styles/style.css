@@ -1,20 +1,28 @@
 #mainDiv{
     margin: 15px;
-}
+    }
 #titleSection{
     background-color: grey;
-}
-table, th, td {
+    }
+
+table, th, td, tfoot {
     border:1px solid black;
-  }
+    border-collapse: collapse; 
+    }
+
+tr:nth-child(odd) {
+    background-color: darkgrey;
+    }
+
+tr:hover {background-color:white;}
 
 #submitDiv{
     float:right;
+    }
 
-}
 #monthlySpendDiv{
     float: right;
-}
+    }   
 
 #headerRow {
     background-color: gray;
@@ -24,10 +32,9 @@ table, th, td {
 
 #employeeTable{
     width: 100%
-}
-.highlight0{
-    background-color: lightgray;
-}
-.highlight1{
-    background-color: rgb(173, 172, 172);
-}
+    }
+
+tr:nth-child(even) {
+    background-color: lightgrey;
+  }
+
